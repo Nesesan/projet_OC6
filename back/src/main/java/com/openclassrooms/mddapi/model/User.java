@@ -33,7 +33,7 @@ public class User {
     private String username;
 
     @Column(unique = true, nullable = false)
-    @NotBlank(message = "Le l'email est requis")
+    @NotBlank(message = "L'email est requis")
     @Email
     private String email;
 
