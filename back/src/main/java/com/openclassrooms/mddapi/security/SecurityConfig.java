@@ -17,6 +17,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .antMatchers("/api/user/**").permitAll()
                 .antMatchers("/api/posts/**").permitAll()
+                .antMatchers("/api/topics/**").permitAll()
                 .anyRequest().authenticated();
 
         return http.build();
