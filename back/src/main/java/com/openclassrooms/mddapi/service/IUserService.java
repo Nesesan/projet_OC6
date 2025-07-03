@@ -10,4 +10,5 @@ public interface IUserService {
     Optional<User> findByEmail(String email);
     Optional<User> getUserById(Long id);
     List<User> getAllUsers();
+    Optional<User> findByUsername(String username);
 }
