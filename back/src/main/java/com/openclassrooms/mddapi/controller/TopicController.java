@@ -3,6 +3,7 @@ package com.openclassrooms.mddapi.controller;
 import com.openclassrooms.mddapi.dto.TopicDto;
 import com.openclassrooms.mddapi.model.Topic;
 import com.openclassrooms.mddapi.model.User;
+import com.openclassrooms.mddapi.service.ITopicService;
 import com.openclassrooms.mddapi.service.IUserService;
 import com.openclassrooms.mddapi.service.impl.TopicService;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ import java.util.stream.Collectors;
 @RequestMapping("api/topics")
 public class TopicController {
 
-    private final TopicService topicService;
+    private final ITopicService topicService;
     private final IUserService userService;
 
     public TopicController(TopicService topicService, IUserService userService) {
