@@ -96,6 +96,23 @@ public class UserService implements IUserService {
         return userRepository.save(user);
     }
 
+    @Override
+    public void subscribeToTopic(User user, Topic topic) {
+        if(!user.getSubscribedTopics().contains(topic)){
+            user.getSubscribedTopics().add(topic);
+            userRepository.save(user);
+        }
+    }
+
+    @Override
+    public void unsubscribeFromTopic(User user, Topic topic) {
+        if(user.getSubscribedTopics().contains(topic)){
+            user.getSubscribedTopics().remove(topic);
+            userRepository.save(user);
+        }
+
+    }
+
     // Conversion Topic -> TopicDto
     private TopicDto convertTopicToDto(Topic topic) {
         TopicDto dto = new TopicDto();

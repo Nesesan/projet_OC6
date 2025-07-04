@@ -2,6 +2,7 @@ package com.openclassrooms.mddapi.service;
 
 import com.openclassrooms.mddapi.dto.UserDto;
 import com.openclassrooms.mddapi.dto.UserUpdateDto;
+import com.openclassrooms.mddapi.model.Topic;
 import com.openclassrooms.mddapi.model.User;
 
 import java.util.List;
@@ -15,5 +16,7 @@ public interface IUserService {
     Optional<User> findByUsername(String username);
     Optional<UserDto> getCurrentUser(String email);
     User updateUser(String email, UserUpdateDto userUpdateDto);
+    void subscribeToTopic(User  user, Topic topic);
+    void unsubscribeFromTopic(User  user, Topic topic);
 
 }

@@ -1,5 +1,6 @@
 package com.openclassrooms.mddapi.service.impl;
 
+import com.openclassrooms.mddapi.dto.CommentRequestDto;
 import com.openclassrooms.mddapi.model.Comment;
 import com.openclassrooms.mddapi.model.Post;
 import com.openclassrooms.mddapi.model.User;
@@ -26,13 +27,13 @@ public class CommentService  implements ICommentService {
     }
 
     @Override
-    public Comment addComment(Long postId, Comment comment, String username) {
+    public Comment addComment(Long postId, CommentRequestDto commentRequestDto, String username) {
 
         User user = userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
         Post post = postRepository.findById(postId).orElseThrow(() -> new UsernameNotFoundException("Post not found"));
 
         Comment newComment = new Comment();
-        comment.setContent(comment.getContent());
+        commentRequestDto.setContent(commentRequestDto.getContent());
         newComment.setPost(post);
         newComment.setAuthor(user);
         newComment.setCreatedAt(LocalDateTime.now());
