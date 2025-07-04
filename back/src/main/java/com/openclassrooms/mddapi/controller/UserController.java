@@ -24,7 +24,7 @@ public class UserController {
     @GetMapping
     public ResponseEntity<List<UserDto>> getAllUsers() {
         List<UserDto> users = userService.getAllUsers();
-        return ResponseEntity.ok(users);
+        return  ResponseEntity.ok(users);
     }
 
     @GetMapping("{id}")
