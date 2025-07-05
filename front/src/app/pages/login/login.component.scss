@@ -1,0 +1,60 @@
+.header{
+  border: black solid 1px;
+}
+
+.logo {
+  height: 16vh;
+  width: auto;
+}
+
+.main{
+  display: flex;
+  justify-content: center;
+}
+
+.form-container {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form label,
+form input {
+  width: 50%;
+  border-radius: 6px;
+  display: block;
+}
+
+form input{
+  height: 20%;
+}
+
+form button{
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.form-container h2 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+form{
+  justify-items: center;
+}
+
+.back-arrow {
+  display: block;
+  font-size: 3rem;
+  color:black;
+  text-decoration: none;
+  text-align: left;
+  margin: 20px 0 20px 20px;
+  transition: opacity 0.3s;
+}
+
+
+
+
+
