@@ -1,0 +1,30 @@
+.header{
+  display:flex;
+  border: black solid 1px;
+  padding: 0 2.375rem; // tb 0 lr 2.375
+
+  &__logo__container{
+    width: 50%;
+  }
+  &__logo {
+    height: 5rem;
+    width: 8.75rem;
+  }
+  &__links{
+    width: 100%;
+    &__items{
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      list-style-type: none;
+      .item{
+        margin-right: 2rem;
+        cursor: pointer;
+      }
+    }
+  }
+  &__icon{
+    width: 3rem;
+    height: 3rem;
+  }
+}

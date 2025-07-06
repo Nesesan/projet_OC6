@@ -3,6 +3,7 @@ package com.openclassrooms.mddapi.controller;
 import com.openclassrooms.mddapi.dto.UserDto;
 import com.openclassrooms.mddapi.dto.UserUpdateDto;
 import com.openclassrooms.mddapi.model.User;
+import com.openclassrooms.mddapi.service.IUserService;
 import com.openclassrooms.mddapi.service.impl.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -15,7 +16,7 @@ import java.util.Map;
 @RequestMapping("/api/users")
 public class UserController {
 
-    private final UserService userService;
+    private final IUserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
