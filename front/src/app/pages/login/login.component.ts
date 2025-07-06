@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   constructor( private formBuilder: FormBuilder,private router: Router, private authService: AuthService ) {
     this.loginForm = formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
+      identifier: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
 
     const credentials = this.loginForm.value;
 
-    alert("coucou")
     this.authService.login(credentials).subscribe({
       next:(response)=> {
         this.router.navigate(['/posts']);
