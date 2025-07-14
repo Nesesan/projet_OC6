@@ -1,0 +1,30 @@
+<div class="main">
+
+  <h2>Profil utilisateur</h2>
+
+  <div class="form-container">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <input type="text" formControlName="username" placeholder="Username">
+      <input type="email" formControlName="email" placeholder="email@email.fr">
+      <input type="password" formControlName="password" placeholder="Mot de passe">
+      <button type="submit" [disabled]="userForm.invalid">Sauvegarder</button>
+    </form>
+  </div>
+  <hr class="separator"/>
+
+
+  <h2>Abonnements</h2>
+  <div class="themes-grid">
+    <div *ngFor="let theme of subscribedThemes" class="theme-card">
+      <h3 class="font-bold">{{ theme.name }}</h3>
+      <p>{{ theme.description }}</p>
+      <button class="subscribe-button" (click)="unsubscribe(theme.id)">Se désabonner</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

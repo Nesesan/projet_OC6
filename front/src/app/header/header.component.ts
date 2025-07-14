@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onUserAccount(): void {
-   this.router.navigate(['/users']);
+   this.router.navigate(['/user']);
   }
 
 }

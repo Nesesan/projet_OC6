@@ -16,6 +16,7 @@ import { PostsComponent } from './pages/posts/posts.component';
 import { TopicsComponent } from './pages/topics/topics.component';
 import {JwtInterceptor} from "./security/jwtInterceptor";
 import { NewPostComponent } from './pages/new-post/new-post.component';
+import { UserComponent } from './pages/user/user.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { NewPostComponent } from './pages/new-post/new-post.component';
     PostsComponent,
     TopicsComponent,
     NewPostComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
