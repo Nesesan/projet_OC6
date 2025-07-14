@@ -13,8 +13,8 @@
     <div *ngFor="let post of posts" class="card" [routerLink]="['/post',post.id]" style="cursor: pointer">
       <h3 class="title">{{ post.title }}</h3>
       <div class="meta">
-        <span>{{ post.createdAt | date:'mediumDate' }}</span>
-        <span>{{ post.author.username }}</span>
+        <span class="meta-date">{{ post.createdAt | date:'mediumDate' }}</span>
+        <span class="meta-author">{{ post.author.username }}</span>
       </div>
       <p class="content">{{ post.content | slice:0:200 }}...</p>
     </div>

@@ -1,8 +1,8 @@
-.article-container {
+.post-container {
   background-color: #fff;
   padding: 2rem;
-  max-width: 900px;
-  margin: 3rem auto;
+  max-width: 70%;
+  margin: 0 auto;
   font-family: Arial, sans-serif;
   color: #111;
 }
@@ -10,26 +10,39 @@
 .header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-
-  .back-button {
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #000;
-  }
-
-  .title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin: 0;
-  }
+  gap: 0.5rem;
+  margin-top: 3rem;
+  margin-left: 2rem;
+  justify-content: flex-start;
+  padding-left: 1.5rem; /* un peu de marge à gauche */
+  padding-top: 1rem;    /* décale vers le bas */
+}
+.back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
+.back-button img {
+  width: 24px; /* adapte la taille de ta flèche */
+  height: 24px;
+  object-fit: contain;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+  margin-left: 4rem;
+}
 .info-line {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 1.5rem;
   margin-top: 0.5rem;
   color: #444;
   font-size: 0.95rem;
@@ -40,11 +53,17 @@
   }
 }
 
+
 .content {
   margin-top: 2rem;
   font-size: 1.1rem;
   line-height: 1.6;
+  text-align: left;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
+
 
 .separator {
   border: none;
@@ -55,46 +74,63 @@
 .comments-title {
   font-size: 1.4rem;
   margin-bottom: 1rem;
+  font-weight: normal;
 }
 
 .comment-line {
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem 0;
+  align-items: flex-start;
+  padding: 0.75rem 0;
   border-bottom: 1px solid #eee;
+  gap: 1rem;
 
   .username {
-    font-weight: bold;
+    font-size: 1.2rem;
+    font-weight: normal;
     color: #333;
+    min-width: 80px;
+    margin-left: 1rem;
   }
 
   .comment-text {
-    max-width: 75%;
-    text-align: right;
+    background-color: #f0f0f0;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    width: 70%;
+    flex: 1;
   }
 }
-
 .comment-input {
   display: flex;
+  align-items: center;
   margin-top: 1.5rem;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 50%;
 
   input {
-    flex: 1;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 8px 0 0 8px;
-    outline: none;
-    font-size: 1rem;
+    padding: 1.2rem 1rem; /* padding vertical plus grand */
+    font-size: 1.1rem;
+    height: 7.5rem;
+    width: 80%;
+    box-sizing: border-box;
+    border-radius: 8px;
   }
 
   button {
-    padding: 0 1.2rem;
-    font-size: 1.2rem;
-    background-color: #000;
-    color: white;
+    background: none;
     border: none;
-    border-radius: 0 8px 8px 0;
     cursor: pointer;
+    padding: 0;
+
+    &::before {
+      content: url('/assets/send.png');
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      filter: hue-rotate(250deg);
+    }
   }
 }
 

@@ -1,12 +1,13 @@
 <div *ngIf="isLoading" class="loading">Chargement de l'article...</div>
 <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
 
-<div *ngIf="!isLoading && post" class="article-container">
-
-  <div class="header">
-    <button class="back-button" (click)="back()">←</button>
-    <h1 class="title">{{ post.title }}</h1>
-  </div>
+<div class="header">
+  <button class="back-button">
+    <a (click)="back()"><img src="/assets/fleche-pointant-vers-la-gauche.png" alt="Retour"></a>
+  </button>
+  <h1 class="title">Titre du post</h1>
+</div>
+<div *ngIf="!isLoading && post" class="post-container">
 
   <div class="info-line">
     <span>{{ post.createdAt | date: 'longDate' }}</span>
