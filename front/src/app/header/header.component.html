@@ -1,13 +1,15 @@
-<header>
-  <div>
-    <img src="assets/logo_p6.png" alt="Logo MDD" class="header_logo">
+<header class="header">
+  <div class="header__logo__container">
+    <img src="assets/logo_p6.png" alt="Logo MDD" class="header__logo">
   </div>
-  <nav class="header_links">
-    <ul class="header_links_items">
-      <li class="item"><a (click)="logOut()"></a></li>
-      <li class="item"><a (click)="onPostsList()"></a></li>
-      <li class="item"><a (click)="onTopicsList()"></a></li>
-      <li class="item"><a (click)="onUserAccount()"></a></li>
+  <nav class="header__links">
+    <ul class="header__links__items">
+      <li class="item"><a class="btn-logout" (click)="logOut()">Se déconnecter</a></li>
+      <li class="item"><a class="btn-small" (click)="onPostsList()">Articles</a></li>
+      <li class="item"><a class="btn-small" (click)="onTopicsList()">Thèmes</a></li>
+      <li class="item"> <a (click)="onUserAccount()" ><img src="assets/user.png" alt="Logo MDD" class="header__icon">
+      </a></li>
     </ul>
   </nav>
 </header>
+

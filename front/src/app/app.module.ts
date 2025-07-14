@@ -12,6 +12,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {AuthService} from "./services/authService";
 import {HttpClientModule} from "@angular/common/http";
+import { PostComponent } from './pages/post/post.component';
+import { PostsComponent } from './pages/posts/posts.component';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import {HttpClientModule} from "@angular/common/http";
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
+    PostComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,

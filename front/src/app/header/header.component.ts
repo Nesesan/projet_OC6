@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onPostsList(): void {
-    //this.router.navigate(['/posts']);
+    this.router.navigate(['/posts']);
   }
 
   onTopicsList(): void {
