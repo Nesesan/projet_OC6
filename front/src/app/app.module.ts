@@ -8,12 +8,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { HeaderComponent } from './header/header.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
-import {AuthService} from "./services/authService";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { PostComponent } from './pages/post/post.component';
 import { PostsComponent } from './pages/posts/posts.component';
+import { TopicsComponent } from './pages/topics/topics.component';
+import {JwtInterceptor} from "./security/jwtInterceptor";
+import { NewPostComponent } from './pages/new-post/new-post.component';
 
 
 @NgModule({
@@ -24,17 +26,22 @@ import { PostsComponent } from './pages/posts/posts.component';
     HeaderComponent,
     PostComponent,
     PostsComponent,
+    TopicsComponent,
+    NewPostComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    FormsModule,
     ReactiveFormsModule,
     RouterModule,
     HttpClientModule,
   ],
-  providers: [AuthService],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+

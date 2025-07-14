@@ -1,0 +1,13 @@
+<div class="themes-grid">
+  <div *ngFor="let topic of topics" class="theme-card">
+    <h3 class="font-bold">{{ topic.name }}</h3>
+    <p>{{ topic.description }}</p>
+
+    <button
+      class="subscribe-button"
+      [disabled]="isSubscribed(topic.id)"
+      (click)="subscribeToTheme(topic.id)">
+      {{ isSubscribed(topic.id) ? 'Déjà abonné' : 'S’abonner' }}
+    </button>
+  </div>
+</div>

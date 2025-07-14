@@ -1,1 +1,22 @@
-<p>posts works!</p>
+<div class="articles-container">
+
+  <div *ngIf="isLoading">Chargement des articles...</div>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  <div *ngIf="!isLoading && posts.length === 0">Aucun article trouvé.</div>
+
+  <div class="header" *ngIf="!isLoading ">
+    <button class="create-btn" (click)="onCreateNewPost()">Créer un article</button>
+    <div class="sort" (click)="toggleSort()" style="cursor: pointer">Trier par <span>↓</span></div>
+  </div>
+
+  <div class="grid" *ngIf="!isLoading && posts.length > 0">
+    <div *ngFor="let post of posts" class="card" [routerLink]="['/post',post.id]" style="cursor: pointer">
+      <h3 class="title">{{ post.title }}</h3>
+      <div class="meta">
+        <span>{{ post.createdAt | date:'mediumDate' }}</span>
+        <span>{{ post.author.username }}</span>
+      </div>
+      <p class="content">{{ post.content | slice:0:200 }}...</p>
+    </div>
+  </div>
+</div>

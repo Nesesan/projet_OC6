@@ -1,0 +1,18 @@
+<div class="main">
+  <h2>Créer un nouvel article</h2>
+
+  <div class="form-container">
+    <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+      <select formControlName="topicId">
+        <option value="">Sélectionner un thème</option>
+        <option *ngFor="let topic of topics" [value]="topic.id">{{ topic.name }}</option>
+      </select>
+
+      <input type="text" formControlName="title" placeholder="Titre de l'article" />
+
+      <textarea formControlName="content" placeholder="Contenu de l'article"></textarea>
+
+      <button type="submit" [disabled]="postForm.invalid">Créer</button>
+    </form>
+  </div>
+</div>

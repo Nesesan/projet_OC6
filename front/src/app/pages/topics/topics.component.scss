@@ -1,0 +1,38 @@
+.themes-grid {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.theme-card {
+  padding: 1rem;
+  background: #f3f4f6;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
+}
+
+.subscribe-button {
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+
+  display: block;
+  margin: 1rem auto 0 auto;
+
+  &:hover {
+    background-color: #6d28d9;
+  }
+
+  &:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+    color: white;
+    box-shadow: none;
+  }
+}

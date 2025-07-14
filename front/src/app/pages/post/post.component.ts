@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Post} from "../../models/post";
-import {ActivatedRoute, Router} from "@angular/router";
-import {AuthService} from "../../services/authService";
-import {PostComment} from "../../models/postComment";
-import {PostService} from "../../services/post.service";
+import { Post } from "../../models/post";
+import { ActivatedRoute, Router } from "@angular/router";
+import { AuthService } from "../../services/authService";
+import { PostComment } from "../../models/postComment";
+import { PostService } from "../../services/postService";
 
 @Component({
   selector: 'app-post',
@@ -16,20 +16,37 @@ export class PostComponent implements OnInit {
   errorMessage = '';
   newComment: string = '';
 
-  constructor( private route: ActivatedRoute,
-               private postService: PostService,
-               private router: Router,
-               private authService: AuthService,) { }
+  constructor(
+    private route: ActivatedRoute,
+    private postService: PostService,
+    private router: Router,
+    private authService: AuthService,
+  ) {}
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id')!;
+    this.route.paramMap.subscribe(params => {
+      const idParam = params.get('id');
+      const id = idParam ? +idParam : 0;
+
+      if (id > 0) {
+        this.loadPost(id);
+      } else {
+        this.errorMessage = "ID d'article invalide.";
+        this.isLoading = false;
+      }
+    });
+  }
+
+  private loadPost(id: number): void {
+    this.isLoading = true;
     this.postService.getPostById(id).subscribe({
       next: (data: Post) => {
         this.post = data;
         this.isLoading = false;
+        this.errorMessage = '';
       },
       error: () => {
-        this.errorMessage = 'Article introuvable.';
+        this.errorMessage = "Article introuvable.";
         this.isLoading = false;
       }
     });
@@ -39,7 +56,7 @@ export class PostComponent implements OnInit {
     this.router.navigate(['/posts']);
   }
 
-  submitComment() {
+  submitComment(): void {
     const content = this.newComment.trim();
     if (!content) return;
 
@@ -60,10 +77,9 @@ export class PostComponent implements OnInit {
         this.errorMessage = '';
       },
       error: err => {
-        this.errorMessage = 'Erreur lors de l\'ajout du commentaire.';
-        console.error(err);
+        this.errorMessage = "Erreur lors de l'ajout du commentaire.";
+        console.error();
       }
     });
   }
-
 }
