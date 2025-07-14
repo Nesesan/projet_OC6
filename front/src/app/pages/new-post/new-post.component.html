@@ -1,5 +1,10 @@
 <div class="main">
-  <h2>Créer un nouvel article</h2>
+
+  <div class="header">
+
+    <a (click)="back()"><img src="assets/fleche-pointant-vers-la-gauche.png" alt="flèche back" class="back-arrow"></a>
+    <h2>Créer un nouvel article</h2>
+  </div>
 
   <div class="form-container">
     <form [formGroup]="postForm" (ngSubmit)="onSubmit()">

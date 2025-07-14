@@ -17,12 +17,10 @@
 }
 
 .back-arrow {
-  display: block;
-  font-size: 2.5rem;
-  color: black;
-  text-decoration: none;
-  margin: 1rem 3rem;
-  align-self: flex-start;
+  width: 3rem;
+  cursor: pointer;
+  margin-left: 2rem;
+  margin-top: 2.5rem;
 }
 
 .main {

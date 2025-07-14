@@ -104,9 +104,12 @@ form button {
   }
 
   .back-arrow {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    position: fixed;
+    top: 8.5rem;
+    left: 1rem;
+    width: 2rem;
+    cursor: pointer;
+    user-select: none;
   }
 
   .form-container h2 {

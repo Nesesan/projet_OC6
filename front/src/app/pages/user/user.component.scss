@@ -8,9 +8,7 @@ body {
   margin: auto;
   padding: 20px;
   border-radius: 5px;
-
 }
-
 
 .main h2 {
   text-align: center;
@@ -18,6 +16,7 @@ body {
   color: #333;
   margin-bottom: 20px;
 }
+
 
 .form-container {
   margin: 0 auto;
@@ -52,6 +51,7 @@ body {
   background-color: #6a5acd;
 }
 
+
 .separator {
   width: 100%;
   border: none;
@@ -59,16 +59,15 @@ body {
   margin: 30px 0;
 }
 
+
 .themes-grid {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
 .theme-card {
   background-color: #f5f5f5;
-  width: 100%;
-  max-width: 391px;
   padding: 15px;
   border-radius: 8px;
   border-bottom: 1px solid #ccc;
@@ -79,9 +78,10 @@ body {
 
 .theme-card h3 {
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
-.subscribe-button {
+.unsubscribe-button {
   background-color: #5c4cdb;
   color: #fff;
   border: none;
@@ -94,26 +94,26 @@ body {
   display: block;
 }
 
-
-.subscribe-button:hover {
+.unsubscribe-button:hover {
   background-color: #6a5acd;
 }
 
-/* Responsive */
-
 @media (max-width: 768px) {
-  .form-container input {
-    width: calc(100% - 30px);
-    margin: 10px auto;
+  .form-container {
+    width: 80%;
   }
 
-  .theme-card {
+  .form-container input {
     width: 100%;
   }
 
   .themes-grid {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 10px;
+  }
+
+  .unsubscribe-button {
+    width: 30%;
   }
 
   .main h2 {
@@ -130,8 +130,8 @@ body {
     padding: 10px;
   }
 
-  .subscribe-button {
+  .unsubscribe-button {
     font-size: 14px;
-    padding: 8px;
+    width: 40%;
   }
 }

@@ -40,4 +40,8 @@ topics: Topic[] = [];
       })
     }
   }
+
+  back() {
+    this.router.navigate(['/posts']);
+  }
 }
