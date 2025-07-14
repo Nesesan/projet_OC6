@@ -37,7 +37,7 @@ export class AuthService {
       const payload = JSON.parse(payloadJson);
       return payload.id || null;
     } catch (e) {
-      console.error('Erreur décodage JWT:', e);
+      console.error();
       return null;
     }
   }

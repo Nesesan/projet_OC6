@@ -1,0 +1,41 @@
+<div *ngIf="isLoading" class="loading">Chargement de l'article...</div>
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+<div *ngIf="!isLoading && post" class="article-container">
+
+  <div class="header">
+    <button class="back-button" (click)="back()">←</button>
+    <h1 class="title">{{ post.title }}</h1>
+  </div>
+
+  <div class="info-line">
+    <span>{{ post.createdAt | date: 'longDate' }}</span>
+    <span class="author">{{ post.author.username }}</span>
+    <span class="topic">{{ post.topic.name }}</span>
+  </div>
+
+  <div class="content">
+    <p>{{ post.content }}</p>
+  </div>
+
+  <hr class="separator" />
+
+  <h2 class="comments-title">Commentaires</h2>
+
+  <div *ngIf="post.comments && post.comments.length > 0; else noComments">
+    <div *ngFor="let comment of post.comments" class="comment-line">
+      <span class="username">{{ comment.authorUsername || 'Anonyme' }}</span>
+      <span class="comment-text">{{ comment.content }}</span>
+    </div>
+  </div>
+
+  <ng-template #noComments>
+    <p class="no-comments">Aucun commentaire pour cet article.</p>
+  </ng-template>
+
+  <div class="comment-input">
+    <input type="text" placeholder="Écrire un commentaire..." [(ngModel)]="newComment" />
+    <button (click)="submitComment()">→</button>
+  </div>
+
+</div>

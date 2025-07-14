@@ -23,15 +23,15 @@ export class HeaderComponent implements OnInit {
   }
 
   onPostsList(): void {
-    //this.router.navigate(['/posts']);
+    this.router.navigate(['/posts']);
   }
 
   onTopicsList(): void {
-   //this.router.navigate(['/topics']);
+   this.router.navigate(['/topics']);
   }
 
   onUserAccount(): void {
-   // this.router.navigate(['/users']);
+   this.router.navigate(['/users']);
   }
 
 }

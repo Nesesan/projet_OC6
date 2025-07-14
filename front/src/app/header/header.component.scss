@@ -1,3 +1,7 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+
 .header{
   display:flex;
   border: black solid 1px;
@@ -18,7 +22,6 @@
       justify-content: end;
       list-style-type: none;
       .item{
-        margin-right: 2rem;
         cursor: pointer;
       }
     }
@@ -27,4 +30,15 @@
     width: 3rem;
     height: 3rem;
   }
+}
+
+.btn-logout{
+  color: #A40F0F;
+  font-size: 1.1rem;
+  margin-right: 3rem;
+}
+
+.btn-small{
+  font-size: 20px;
+  margin-right: 3rem;
 }
