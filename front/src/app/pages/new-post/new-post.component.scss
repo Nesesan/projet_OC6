@@ -6,37 +6,33 @@ body {
 
 .main {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  margin-top: 3rem;
-  position: relative;
-  max-width: 17rem;
-  margin-left: auto;
-  margin-right: auto;
   width: 100%;
+  margin-top: 3rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 .header {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   width: 100%;
-  text-align: center;
   margin-bottom: 1.5rem;
 }
 
 .back-arrow {
-  position: fixed;
-  top: 8.5rem;
-  left: 1rem;
-  width: 2rem;
+  width: 2.4rem;
   cursor: pointer;
   user-select: none;
-  z-index: 10;
+  margin-bottom: 0.5rem;
 }
 
 h2 {
-  font-size: 1.5rem;
-  margin: 0;
+  font-size: 2rem;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
 }
 
 .form-container {
@@ -52,13 +48,18 @@ form {
   gap: 1rem;
 }
 
-select, input, textarea, button {
+select,
+input,
+textarea,
+button {
   padding: 0.75rem;
   font-size: 1rem;
   border-radius: 6px;
   border: 2px solid #6a5acd;
   box-sizing: border-box;
+  width: 100%;
 }
+
 
 textarea {
   height: 13rem;
@@ -67,9 +68,10 @@ textarea {
 button {
   background-color: #6a5acd;
   color: white;
-  width: 8.6rem;
   border: none;
   cursor: pointer;
+  width: 45%;
+  margin: 0 auto;
 }
 
 button:disabled {
