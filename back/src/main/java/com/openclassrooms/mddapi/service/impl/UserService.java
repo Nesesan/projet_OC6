@@ -10,6 +10,7 @@ import com.openclassrooms.mddapi.service.IUserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -81,22 +82,36 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public User updateUser(String email, UserUpdateDto userUpdateDto) {
-        User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid email"));
-        if (userUpdateDto.getUsername() != null && !userUpdateDto.getUsername().isEmpty()) {
-            user.setUsername(userUpdateDto.getUsername());
-        }
-        if (userUpdateDto.getEmail() != null && !userUpdateDto.getEmail().isEmpty()) {
+    public User updateUser(String currentEmail, UserUpdateDto userUpdateDto) {
+        User user = userRepository.findByEmail(currentEmail)
+                .orElseThrow(() -> new IllegalArgumentException("Utilisateur introuvable avec l'email actuel"));
+
+        if (userUpdateDto.getEmail() != null && !userUpdateDto.getEmail().equals(user.getEmail())) {
+            if (userRepository.findByEmail(userUpdateDto.getEmail()).isPresent()) {
+                throw new IllegalArgumentException("L'email est déjà utilisé par un autre utilisateur");
+            }
             user.setEmail(userUpdateDto.getEmail());
         }
+
+        if (userUpdateDto.getUsername() != null && !userUpdateDto.getUsername().equals(user.getUsername())) {
+            if (userRepository.findByUsername(userUpdateDto.getUsername()).isPresent()) {
+                throw new IllegalArgumentException("Le nom d'utilisateur est déjà utilisé");
+            }
+            user.setUsername(userUpdateDto.getUsername());
+        }
+
         if (userUpdateDto.getPassword() != null && !userUpdateDto.getPassword().isEmpty()) {
             user.setPassword(passwordEncoder.encode(userUpdateDto.getPassword()));
         }
+
+        System.out.println("Update user id: " + user.getId() + " | email: " + user.getEmail());
+
         return userRepository.save(user);
     }
 
+
     @Override
+    @Transactional
     public void subscribeToTopic(User user, Topic topic) {
         if(!user.getSubscribedTopics().contains(topic)){
             user.getSubscribedTopics().add(topic);
@@ -105,6 +120,7 @@ public class UserService implements IUserService {
     }
 
     @Override
+    @Transactional
     public void unsubscribeFromTopic(User user, Topic topic) {
         if(user.getSubscribedTopics().contains(topic)){
             user.getSubscribedTopics().remove(topic);

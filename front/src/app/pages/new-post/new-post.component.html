@@ -1,18 +1,23 @@
 <div class="main">
-  <h2>Créer un nouvel article</h2>
+  <div class="header">
+    <img src="assets/fleche-pointant-vers-la-gauche.png" alt="Retour" class="back-arrow" (click)="back()" />
+  </div>
 
-  <div class="form-container">
-    <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
-      <select formControlName="topicId">
-        <option value="">Sélectionner un thème</option>
-        <option *ngFor="let topic of topics" [value]="topic.id">{{ topic.name }}</option>
-      </select>
+  <div class="content-wrapper"> <!-- WRAPPER -->
+    <h2>Créer un nouvel article</h2>
 
-      <input type="text" formControlName="title" placeholder="Titre de l'article" />
+    <div class="form-container">
+      <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+        <select formControlName="topicId">
+          <option value="">Sélectionner un thème</option>
+          <option *ngFor="let topic of topics" [value]="topic.id">{{ topic.name }}</option>
+        </select>
 
-      <textarea formControlName="content" placeholder="Contenu de l'article"></textarea>
+        <input type="text" formControlName="title" placeholder="Titre de l'article" />
+        <textarea formControlName="content" placeholder="Contenu de l'article"></textarea>
 
-      <button type="submit" [disabled]="postForm.invalid">Créer</button>
-    </form>
+        <button type="submit" [disabled]="postForm.invalid">Créer</button>
+      </form>
+    </div>
   </div>
 </div>

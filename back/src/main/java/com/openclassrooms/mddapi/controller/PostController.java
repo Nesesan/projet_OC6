@@ -48,8 +48,9 @@ public class PostController {
 
     @PostMapping("/{postId}/comments")
     public ResponseEntity<CommentDto> addComment(@PathVariable Long postId, @RequestBody CommentRequestDto commentRequestDto, Authentication authentication) {
-        String username = authentication.getName();
-        Comment newComment = commentService.addComment(postId, commentRequestDto, username);
+        System.out.println("Utilisateur authentifié: " + authentication.getName());
+        Comment newComment = commentService.addComment(postId, commentRequestDto, authentication.getName());
         return new ResponseEntity<>(new CommentDto(newComment), HttpStatus.CREATED);
     }
+
 }

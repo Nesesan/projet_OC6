@@ -18,11 +18,12 @@
 
 .back-arrow {
   display: block;
-  font-size: 2.5rem;
+  font-size: 4rem;
   color: black;
   text-decoration: none;
   margin: 1rem 3rem;
   align-self: flex-start;
+  cursor: pointer;
 }
 
 .main {
@@ -104,9 +105,12 @@ form button {
   }
 
   .back-arrow {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    position: fixed;
+    top: 8.5rem;
+    left: 1rem;
+    width: 4rem;
+    cursor: pointer;
+    user-select: none;
   }
 
   .form-container h2 {
