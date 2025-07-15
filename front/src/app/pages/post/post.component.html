@@ -5,7 +5,7 @@
   <button class="back-button">
     <a (click)="back()"><img src="/assets/fleche-pointant-vers-la-gauche.png" alt="Retour"></a>
   </button>
-  <h1 class="title">Titre du post</h1>
+  <h1 class="title">{{post.title}}</h1>
 </div>
 <div *ngIf="!isLoading && post" class="post-container">
 
@@ -36,7 +36,7 @@
 
   <div class="comment-input">
     <input type="text" placeholder="Écrire un commentaire..." [(ngModel)]="newComment" />
-    <button (click)="submitComment()">→</button>
+    <button (click)="submitComment()"></button>
   </div>
 
 </div>

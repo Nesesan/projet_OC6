@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   padding: 0;
@@ -28,11 +29,24 @@ body {
   margin-bottom: 0.5rem;
 }
 
+
+.content-wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+
+@media (min-width: 768px) {
+  .content-wrapper {
+    max-width: 50%;
+  }
+}
+
 h2 {
   font-size: 2rem;
-  margin: 0 auto;
+  margin: 0 auto 1.5rem;
   text-align: center;
-  width: 100%;
 }
 
 .form-container {
@@ -59,7 +73,6 @@ button {
   box-sizing: border-box;
   width: 100%;
 }
-
 
 textarea {
   height: 13rem;
