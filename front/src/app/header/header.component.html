@@ -6,11 +6,17 @@
   <!-- Nav Desktop -->
   <nav class="header__links">
     <ul class="header__links__items">
-      <li class="item"><a class="btn-logout" (click)="logOut()">Se déconnecter</a></li>
-      <li class="item"><a class="btn-small" (click)="onPostsList()">Articles</a></li>
-      <li class="item"><a class="btn-small" (click)="onTopicsList()">Thèmes</a></li>
       <li class="item">
-        <a (click)="onUserAccount()">
+        <a class="btn-logout" (click)="logOut()">Se déconnecter</a>
+      </li>
+      <li class="item">
+        <a routerLink="/posts" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="btn-small">Articles</a>
+      </li>
+      <li class="item">
+        <a routerLink="/topics" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="btn-small">Thèmes</a>
+      </li>
+      <li class="item">
+        <a routerLink="/user" routerLinkActive="active-icon" [routerLinkActiveOptions]="{ exact: true }">
           <img src="assets/circle-user-solid.svg" alt="User" class="header__icon" />
         </a>
       </li>
@@ -23,19 +29,16 @@
   <nav class="sidebar__nav">
     <ul>
       <li><a class="btn-logout-mobile" (click)="logOut()">Se déconnecter</a></li>
-      <li><a (click)="onPostsList(); toggleAside()">Articles</a></li>
-      <li><a (click)="onTopicsList(); toggleAside()">Thèmes</a></li>
+      <li><a routerLink="/posts" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" (click)="toggleAside()">Articles</a></li>
+      <li><a routerLink="/topics" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" (click)="toggleAside()">Thèmes</a></li>
     </ul>
   </nav>
   <div class="sidebar__footer">
-    <a (click)="onUserAccount(); toggleAside()">
+    <a routerLink="/user" routerLinkActive="active-icon" [routerLinkActiveOptions]="{ exact: true }" (click)="toggleAside()">
       <img src="assets/circle-user-solid.svg" alt="User" class="sidebar__icon" />
     </a>
   </div>
 </aside>
 
-
 <button class="hamburger" (click)="toggleAside()">☰</button>
-
-
 <div class="overlay" [class.show]="asideOpen" (click)="toggleAside()"></div>
