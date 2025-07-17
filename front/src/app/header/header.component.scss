@@ -53,7 +53,6 @@ body {
   margin-right: 3rem;
 }
 
-
 .hamburger {
   display: none;
   background: none;
@@ -67,11 +66,9 @@ body {
   z-index: 1100;
 }
 
-
 .sidebar.open ~ .hamburger {
   display: none;
 }
-
 
 .sidebar {
   position: fixed;
@@ -134,7 +131,6 @@ body {
   }
 }
 
-
 .overlay {
   display: none;
   position: fixed;
@@ -150,6 +146,27 @@ body {
   }
 }
 
+
+.active-link {
+  font-weight: bold;
+  color: #7763C5;
+  text-decoration: none;
+}
+a {
+  color: black;
+  text-decoration: none;
+  font-weight: normal;
+}
+a.active-icon img,
+.sidebar__footer a.active-icon img {
+  filter: invert(38%) sepia(50%) saturate(528%) hue-rotate(240deg) brightness(60%) contrast(85%);
+}
+
+a.active-link,
+a.active-icon img,
+.sidebar__footer a.active-icon img {
+  transition: color 0.3s ease, filter 0.3s ease;
+}
 
 @media screen and (max-width: 768px) {
   .header {

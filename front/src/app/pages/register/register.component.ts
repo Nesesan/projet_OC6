@@ -24,11 +24,9 @@ export class RegisterComponent {
     if (this.registerForm.valid) {
       this.authService.register(this.registerForm.value).subscribe({
           next: () => {
-            alert("Register successfully");
             this.router.navigate(['/login']);
           },
           error: (err: { message: string; }) => {
-            alert('An error has occurred: ' + err.message);
           }
         }
       )
