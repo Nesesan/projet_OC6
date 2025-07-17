@@ -52,6 +52,6 @@ mvn spring-boot:run
 
 - Utilisateur : postgres
 
-- Mot de passe : postgres (à adapter selon votre configuration)
+- Mot de passe : 
 
 - Vérifiez que votre serveur PostgreSQL est démarré et que la configuration de connexion dans application.properties est correcte.
